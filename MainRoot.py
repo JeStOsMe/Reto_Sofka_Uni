@@ -3,7 +3,6 @@ from MyFrames import first_window, new_question, between_right_answer, endgame, 
 import random
 
 
-
 questions = open("Preguntas/Preguntas.txt", "r", encoding="utf-8").read()   
 questions = questions.split("Categoria:")
 questions.pop(0)
@@ -40,7 +39,17 @@ def between_answer(option, points):
 
 
 def saveUser(points):
-    user = save_user(points)
+    if (points == 0):
+        user = save_user(0)
+        #user.print_users()
+        return None
+    elif (points == 20) or (points == 40) or (points == 60) or (points == 80) or (points == 100):
+        user = save_user(points)
+        user.save_username()
+        user.print_users()
+    else:
+        user = save_user(0)
+        #user.print_users()
 
 
 def end_game(points, option, ans):

@@ -12,5 +12,8 @@ Si se equivoca, perderá el juego y no conservará nada del acumulado.
 Si acierta correctamente las 25 preguntas, ganará el premio máximo y será indiscutiblemente 
 el ganador del juego.
 
+Solo se guardarán los usuarios que decidan salirse al final de una ronda,
+o aquellos que logren completar todo el cuestionario.
+
 
 ¿Empezamos?

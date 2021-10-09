@@ -84,7 +84,7 @@ class first_window:
         MyFrame = Frame(root, padx=10, pady=10)
         MyFrame.pack()
         MyLabel = Label(MyFrame, text=open("Introduccion.txt", "r", encoding="utf-8").read())
-        MyLabel.grid(row=2, column=0)
+        MyLabel.grid(row=2, column=0, columnspan=4)
 
         def returnResponse():
             self.closed = True
@@ -196,8 +196,15 @@ class endgame:
 
 class save_user:
 
+    username = ""
+    points = 0
+
     def __init__(self, points):
         
+        if (points == 0):
+            self.print_users()
+            return
+
         root = Tk()
         root.title("Sofka U - Registro de usuario")
         root.iconbitmap("Icons/SofkaU_Icon.ico")
@@ -205,15 +212,18 @@ class save_user:
         MyFrame = Frame(root, padx=10, pady=10)
         MyFrame.pack()
 
-        def save_username():
+        def save_data_user():
             print("Guardar usuario")
+            self.username = usernameText.get()
+            self.points = points
             root.destroy()
 
         LabelOne = Label(MyFrame, text="Guardado de usuario", font=50)
         LabelTwo = Label(MyFrame, text="Por favor, ingrese un usuario para almacenar")
         LabelThree = Label(MyFrame, text="Usuario:", padx=5, pady=10)
         usernameText = Entry(MyFrame)
-        ButtonSave = Button(MyFrame, text="Guardar", padx=10, pady=10, command=save_username)
+        ButtonSave = Button(MyFrame, text="Guardar", padx=10, pady=10, command=save_data_user)
+
 
         LabelOne.grid(row=1, column=2, columnspan=2)
         LabelTwo.grid(row=3, column=2)
@@ -223,3 +233,41 @@ class save_user:
 
 
         root.mainloop()
+
+    def save_username(self):
+        
+        print(self.username, "<--->", self.points)
+        
+        with open("Historico_Jugadores/Historico.txt", "a+", encoding="utf-8") as registro:
+            
+            usuarios = registro.readlines()
+
+            usuarios.append(f"Usuario: {self.username}, Puntos: {self.points}\n")
+
+            for usuario in usuarios:
+                registro.write(usuario)
+    
+    def print_users(self):
+        with open("Historico_Jugadores/Historico.txt", "r", encoding="utf-8") as registro:
+            users = ""
+            for line in registro.readlines():
+                users += line.replace("{", "").replace("}", "").strip() + "\n"
+
+          
+            
+            root = Tk()
+            root.title("Sofka U - Registro de Jugadores")
+            root.iconbitmap("Icons/SofkaU_Icon.ico")
+            root.geometry("650x350")
+
+
+            usersText = Label(root, text=users)
+            usersText.place(x=200, y=50)
+            
+
+
+            exitButton = Button(root, text="Salir", padx=10, pady=5, command=lambda:root.destroy())
+            exitButton.place(x=500, y= 300)
+            
+            
+            root.mainloop()
