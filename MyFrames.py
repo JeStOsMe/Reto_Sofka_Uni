@@ -4,7 +4,7 @@ import random
 class new_question:
 
     Question = ""
-    Correct = False
+    game_over = False
     wants_to_exit = False
     right_answer=0
 
@@ -12,7 +12,7 @@ class new_question:
         self.Question = question
         root = Tk()
         root.title(f"Sofka U - Ronda {category}, Pregunta {counter}")
-        root.iconbitmap("Retos_AprendeConAlf/Ficheros_Ejercicios/Reto_Sofka_PyR/Icons/SofkaU_Icon.ico")  
+        root.iconbitmap("Icons/SofkaU_Icon.ico")  
         root.geometry("650x350")
         MyFrame = Frame(root, padx=10, pady=10)
         MyFrame.pack()
@@ -46,11 +46,12 @@ class new_question:
         def answer_question():
             if (varOption.get() != self.right_answer):
                 print("Perdió!")
-                self.Correct = False
+                self.game_over = True
+                root.destroy()
             else:
                 print("Acertó!")
-                self.Correct = True
-            root.destroy()
+                self.game_over = False
+            
         MyButtonContinue = Button(MyFrame, text="Responder", padx=5, command=lambda:answer_question())
         MyButtonContinue.grid(row=6, column=4)
 
@@ -73,10 +74,10 @@ class first_window:
         
         root = Tk()
         root.title("Preguntas y Respuestas - Sofka U")
-        root.iconbitmap("Retos_AprendeConAlf/Ficheros_Ejercicios/Reto_Sofka_PyR/Icons/SofkaU_Icon.ico")  
+        root.iconbitmap("Icons/SofkaU_Icon.ico")  
         MyFrame = Frame(root, padx=10, pady=10)
         MyFrame.pack()
-        MyLabel = Label(MyFrame, text=open("Retos_AprendeConAlf/Ficheros_Ejercicios/Reto_Sofka_PyR/Introduccion.txt", "r", encoding="utf-8").read())
+        MyLabel = Label(MyFrame, text=open("Introduccion.txt", "r", encoding="utf-8").read())
         MyLabel.grid(row=2, column=0)
 
         def returnResponse():

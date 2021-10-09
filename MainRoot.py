@@ -4,7 +4,7 @@ import random
 
 
 
-questions = open("Retos_AprendeConAlf/Ficheros_Ejercicios/Reto_Sofka_PyR/Preguntas/Preguntas.txt", "r", encoding="utf-8").read()   
+questions = open("Preguntas/Preguntas.txt", "r", encoding="utf-8").read()   
 questions = questions.split("Categoria:")
 questions.pop(0)
 questionsAux = list()
@@ -33,14 +33,19 @@ if (firstWindow.closed == True):
     question_container = list()
     back_tail = 0
     front_tail = 5
+    game_over = False
 
     for round in range(5):        
+        if (game_over == True):
+            break
         containerAux = questionsAux[back_tail:front_tail]
         print(containerAux)
         for questionNumber in range(5):
+            
+            if (game_over == True):
+                break
+            
             while True:
-
-                
                 aux = random.choice(containerAux)
                 if aux not in question_container:
                     question_container.append(aux)
@@ -59,9 +64,11 @@ if (firstWindow.closed == True):
                     break
                 else:
                     question = new_question(aux, Category, int(question_count))
+                    game_over = question.game_over
                     print("La respuesta correcta es", question.right_answer)
             except:
                 question = new_question(aux, Category, int(question_count))
+                game_over = question.game_over
                 print("La respuesta correcta es", question.right_answer)
             
         continue
