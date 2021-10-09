@@ -51,7 +51,7 @@ class new_question:
             else:
                 print("Acertó!")
                 self.game_over = False
-            
+                root.destroy()
         MyButtonContinue = Button(MyFrame, text="Responder", padx=5, command=lambda:answer_question())
         MyButtonContinue.grid(row=6, column=4)
 
