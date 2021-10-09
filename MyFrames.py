@@ -6,6 +6,7 @@ class new_question:
     Question = ""
     Correct = False
     wants_to_exit = False
+    right_answer=0
 
     def __init__(self, question, category, counter):
         self.Question = question
@@ -15,24 +16,53 @@ class new_question:
         root.geometry("650x350")
         MyFrame = Frame(root, padx=10, pady=10)
         MyFrame.pack()
+        
+        question = question.split("*.")
         self.Question = question
-        QuestionLabel = Label(MyFrame, text=self.Question)
-        QuestionLabel.grid(row=1, column=1)
+
+        varOption = IntVar()
+        optionOne = Radiobutton(MyFrame, text=self.saving_answer(self.Question[1].strip(), 1), variable=varOption, value=1)
+        optionTwo = Radiobutton(MyFrame, text=self.saving_answer(self.Question[2].strip(), 2), variable=varOption, value=2)
+        optionThree = Radiobutton(MyFrame, text=self.saving_answer(self.Question[3].strip(), 3), variable=varOption, value=3)
+        optionFour = Radiobutton(MyFrame, text=self.saving_answer(self.Question[4].strip(), 4), variable=varOption, value=4)
+        
+        
+        QuestionLabel = Label(MyFrame, text=f"¿{self.Question[0]}")
+        QuestionLabel.grid(row=1, column=1, columnspan=4)
+
+        optionOne.grid(row=2, column=1)
+        optionTwo.grid(row=3, column=1)
+        optionThree.grid(row=4, column=1)
+        optionFour.grid(row=5, column=1)
+
         
 
         def Exit_window():
             self.wants_to_exit = True
             root.destroy()
         MyButtonClose = Button(MyFrame, text="Salir", padx=10, pady=5, command=Exit_window)
-        MyButtonClose.grid(row=3, column=3)
+        MyButtonClose.grid(row=6, column=3)
 
-        def next_window():
+        def answer_question():
+            if (varOption.get() != self.right_answer):
+                print("Perdió!")
+                self.Correct = False
+            else:
+                print("Acertó!")
+                self.Correct = True
             root.destroy()
-        MyButtonContinue = Button(MyFrame, text="Continuar", padx=5, command=next_window)
-        MyButtonContinue.grid(row=3, column=4)
+        MyButtonContinue = Button(MyFrame, text="Responder", padx=5, command=lambda:answer_question())
+        MyButtonContinue.grid(row=6, column=4)
 
         root.mainloop()
 
+    def saving_answer(self, question, number):
+        if ("!" in question):
+            question = question.replace("!", "")
+            self.right_answer = number
+            return question
+        else:
+            return question
 
 class first_window:
 

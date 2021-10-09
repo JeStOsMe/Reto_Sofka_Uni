@@ -59,9 +59,11 @@ if (firstWindow.closed == True):
                     break
                 else:
                     question = new_question(aux, Category, int(question_count))
+                    print("La respuesta correcta es", question.right_answer)
             except:
                 question = new_question(aux, Category, int(question_count))
-
+                print("La respuesta correcta es", question.right_answer)
+            
         continue
     
 

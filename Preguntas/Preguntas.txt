@@ -2,21 +2,21 @@ Categoria: bajo
 
 ¿Cuál de los siguientes NO es múltiplo de 3? 
 *. 33 
-*. 11 
+*. 11 !
 *. 27 
 *. 42 
 ¿Qué tipo de célula es la que conforma a todos los animales? 
 *. Protista 
 *. Fúngica 
-*. Eucariota  
+*. Eucariota ! 
 *. Animalista  
 ¿Cómo se llama el sistema al que pertenece el esófago? 
-*. Digestivo 
+*. Digestivo !
 *. Gástrico  
 *. Endocrino  
 *. Pulmonar  
 ¿Cuál es el ave nacional de Colombia? 
-*. Azulejo  
+*. Azulejo !
 *. Canario  
 *. Golero 
 *. Cóndor 
@@ -24,7 +24,7 @@ Categoria: bajo
 *. Yarumal 
 *. Tarazá 
 *. Bello 
-*. Medellín
+*. Medellín !
 
 Categoria: bajo-medio
 
