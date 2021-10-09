@@ -108,7 +108,7 @@ class between_right_answer:
     Next_question = False
     Surrender = False
 
-    def __init__(self, change_category, points):
+    def __init__(self, option, points):
         
 
 
@@ -134,7 +134,7 @@ class between_right_answer:
             self.Surrender = True
             root.destroy()
 
-        if (change_category == 1):
+        if (option == 1):
             LabelTwo = Label(MyFrame, text="Puede retirarse ahora conservando su total de puntos")
             LabelThree = Label(MyFrame, text="O puede continuar a la siguiente pregunta")
             ButtonOne = Button(MyFrame, text="Retirarse", padx=10, pady=10, command=retreat_button)
@@ -153,13 +153,9 @@ class between_right_answer:
         LabelFour = Label(MyFrame, text=f"Puntos: {points}", font=20)
         LabelFour.grid(row=5, column=1)
 
-
-
-
-
         root.mainloop()
 
-class game_over:
+class endgame:
 
 
     def __init__(self, end, points, answered_questions):
@@ -193,5 +189,37 @@ class game_over:
         LabelOne.grid(row=1, column=1, columnspan=2)
         LabelTwo.grid(row=3, column=1, columnspan=2)
 
-        ButtonAccept = Button(MyFrame, text="Aceptar", padx=10, pady=5, command=lambda:close_window())
+        ButtonAccept = Button(MyFrame, text="Aceptar", padx=10, pady=5, command=close_window)
         ButtonAccept.grid(row=5, column=2)
+
+        root.mainloop()
+
+class save_user:
+
+    def __init__(self, points):
+        
+        root = Tk()
+        root.title("Sofka U - Registro de usuario")
+        root.iconbitmap("Icons/SofkaU_Icon.ico")
+        root.geometry("650x350")
+        MyFrame = Frame(root, padx=10, pady=10)
+        MyFrame.pack()
+
+        def save_username():
+            print("Guardar usuario")
+            root.destroy()
+
+        LabelOne = Label(MyFrame, text="Guardado de usuario", font=50)
+        LabelTwo = Label(MyFrame, text="Por favor, ingrese un usuario para almacenar")
+        LabelThree = Label(MyFrame, text="Usuario:", padx=5, pady=10)
+        usernameText = Entry(MyFrame)
+        ButtonSave = Button(MyFrame, text="Guardar", padx=10, pady=10, command=save_username)
+
+        LabelOne.grid(row=1, column=2, columnspan=2)
+        LabelTwo.grid(row=3, column=2)
+        LabelThree.grid(row=5, column=1)
+        usernameText.grid(row=5, column=2)
+        ButtonSave.grid(row=8, column=4)
+
+
+        root.mainloop()

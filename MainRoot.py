@@ -1,5 +1,5 @@
 from tkinter import *
-from MyFrames import first_window, new_question, between_right_answer
+from MyFrames import first_window, new_question, between_right_answer, endgame, save_user
 import random
 
 
@@ -27,9 +27,9 @@ for i in range(5):
 firstWindow = first_window()
 
 
-def between_answer(change_category, points):
+def between_answer(option, points):
 
-    between = between_right_answer(change_category, points)
+    between = between_right_answer(option, points)
 
     if between.Surrender == True:
         return 1
@@ -38,6 +38,19 @@ def between_answer(change_category, points):
     elif between.Next_question == True:
         return 3
 
+
+def saveUser(points):
+    user = save_user(points)
+
+
+def end_game(points, option, ans):
+    
+    final_message = endgame(option, points, ans)
+
+    
+    
+    #Función para cuando se equivoca.
+    print("Fin del juego")
 
 if (firstWindow.closed == True):
     
@@ -81,6 +94,7 @@ if (firstWindow.closed == True):
             try:
                 if (question.wants_to_exit == True):
                     game_over = question.wants_to_exit
+                    print("Quiere salir")
                     break
                 else:
                     question = new_question(aux, Category, int(question_count))
@@ -99,12 +113,20 @@ if (firstWindow.closed == True):
             if (question.points == 0):
                 #Construir ventana de fin del juego
                 game_over = True
-                print("Fin del juego")
+                print("Se ha equivocado")
+                end_game(points_until_now, 1, question_count)
+                saveUser(points_until_now)
                 break
             else:
                 points_until_now += 4
                 game_over = False
                 print("Puntos hasta ahora:", points_until_now)
+
+                if (points_until_now == 100):
+                    game_over = True
+                    end_game(points_until_now, 2, question_count)
+                    saveUser(points_until_now)
+                    break
 
                 if (aux_category != Category):
                     aux_category = Category
@@ -116,14 +138,18 @@ if (firstWindow.closed == True):
                 game_over = True
                 #Ventana de fin del juego por rendirse
                 print("Opción 1")
+                end_game(points_until_now, 1, question_count)
+                saveUser(points_until_now)
                 break
             elif (optionReturned == 2):
                 game_over = True
                 #Ventana de fin del juego por retirarse
                 print("Opción 2")
+                end_game(points_until_now, 3, question_count)
+                saveUser(points_until_now)
                 break
             elif (optionReturned == 3):
-                game_over = False
+                #Ventana de fin de juego por contestar todas las preguntas
                 print("Opción  3")
             
         continue
