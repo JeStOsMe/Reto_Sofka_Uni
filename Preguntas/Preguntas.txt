@@ -118,7 +118,7 @@ Categoria: medio-alto.
 
 ¿Cuál es la civilización humana más registrada en America?
 *. Maya
-*. Caral
+*. Caral !
 *. Azteca
 *. Olmeca
 
