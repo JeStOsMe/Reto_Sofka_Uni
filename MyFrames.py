@@ -52,7 +52,7 @@ class new_question:
                 print("Acertó!")
                 self.game_over = False
                 root.destroy()
-        MyButtonContinue = Button(MyFrame, text="Responder", padx=5, command=lambda:answer_question())
+        MyButtonContinue = Button(MyFrame, text="Responder", padx=10, pady=5, command=lambda:answer_question())
         MyButtonContinue.grid(row=6, column=4)
 
         root.mainloop()
@@ -75,6 +75,7 @@ class first_window:
         root = Tk()
         root.title("Preguntas y Respuestas - Sofka U")
         root.iconbitmap("Icons/SofkaU_Icon.ico")  
+        root.geometry("650x350")
         MyFrame = Frame(root, padx=10, pady=10)
         MyFrame.pack()
         MyLabel = Label(MyFrame, text=open("Introduccion.txt", "r", encoding="utf-8").read())

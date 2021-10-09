@@ -1,12 +1,16 @@
-El siguiente es un juego de preguntas y respuestas tipo "¿Quién quiere ser millonario?", desarrollado como reto para Sofka U, de las manos de Jeaniel Stiwar Osorno Mejía.
-En el juego se encontrará con un total de 25 preguntas, divididas entre 5 categorías de dificultad, las cuales aparecerán en orden aleatorio.
-Una vez se muestra una pregunta, usted podrá elegir una de las 4 opciones disponibles, y luego enviar su respuesta.
+El siguiente es un juego de preguntas y respuestas tipo "¿Quién quiere ser millonario?", 
+desarrollado como reto para Sofka U, de las manos de Jeaniel Stiwar Osorno Mejía.
+En el juego se encontrará con un total de 25 preguntas, divididas entre 5 categorías de 
+dificultad, las cuales aparecerán en orden aleatorio. Una vez se muestra una pregunta, 
+usted podrá elegir una de las 4 opciones disponibles, y luego enviar su respuesta.
 
-Si acierta correctamente, podrá elegir entre retirarse del juego con el acumulado de puntos hasta ahora, o continuar a la siguiente pregunta.
+Si acierta correctamente, podrá elegir entre retirarse del juego con el acumulado de puntos
+hasta ahora, o continuar a la siguiente pregunta.
 
 Si se equivoca, perderá el juego y no conservará nada del acumulado.
 
-Si acierta correctamente las 25 preguntas, ganará el premio máximo y será indiscutiblemente el ganador del juego.
+Si acierta correctamente las 25 preguntas, ganará el premio máximo y será indiscutiblemente 
+el ganador del juego.
 
 
 ¿Empezamos?

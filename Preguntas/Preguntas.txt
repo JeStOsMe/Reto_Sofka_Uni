@@ -16,10 +16,10 @@ Categoria: bajo
 *. Endocrino  
 *. Pulmonar  
 ¿Cuál es el ave nacional de Colombia? 
-*. Azulejo !
+*. Azulejo
 *. Canario  
 *. Golero 
-*. Cóndor 
+*. Cóndor !
 ¿Cuál es la capital de Antioquia?  
 *. Yarumal 
 *. Tarazá 
@@ -29,31 +29,31 @@ Categoria: bajo
 Categoria: bajo-medio
 
 ¿Quién escribió Romeo y Julieta?
-*.
-*.
-*.
-*.
+*. William Shakespeare !
+*. Lewis Carroll
+*. Edgar Allan Poe
+*. Mark Twain
 
 ¿Quién dibujó El Hombre de Vitruvio?
-*.
-*.
-*.
-*.
+*. Caravaggio
+*. Miguel Ángel
+*. Leonardo Da Vinci !
+*. Sandro Botticelli
 
 ¿Cuál es el nombre del creador de Python?
-*. Guido Van Rossum
+*. Guido Van Rossum !
 *. Tim Berners-lee
 *. Steve Jobs
 *. Bill Gates
 
 ¿Quién escribió El Principito?
-*. 
-*. 
-*. 
-*. 
+*. Giovanni Straparola
+*. Antoine de Saint-Exupéry !
+*. Jacob Grimm
+*. Carlo Lorenzini
 
 ¿Cuál es la unidad monetaria de Japón?
-*. Yen
+*. Yen !
 *. Yuan
 *. Rubros
 *. Zekiro
@@ -61,95 +61,95 @@ Categoria: bajo-medio
 Categoria: medio
 
 ¿Cuánto duró la guerra de 100 años?
-*. 
-*. 
-*. 
-*. 
+*. 103 años
+*. 97 años
+*. 100 años
+*. 116 años !
 
 ¿Cuál es la película más taquillera de la historia?
 *. Avatar
 *. El Titanic
-*. Avengers: Endgame
+*. Avengers: Endgame !
 *. Volver al futuro
 
 ¿Cuál es la luna más grande de Saturno?
-*. 
-*. 
-*. 
-*. 
+*. Encélado
+*. Titán !
+*. Jápeto
+*. Hiperión
 
 ¿En qué año murió Freddie Mercury, famoso cantante del afamado grupo musical británico Queen?
-*. 
-*. 
-*. 
-*. 
+*. 1980
+*. 1991 !
+*. 1981
+*. 1977
 
 ¿Quién creó la Penicilina?
-*. 
-*. 
-*. 
-*. 
+*. Edward Jenner
+*. Wilhelm Roentgen
+*. Charles Dotter
+*. Alexander Fleming !
 
 Categoria: medio-alto.
 
 ¿En qué país se encuentra Transilvania?
-*. 
-*. 
-*. 
-*. 
+*. Rumania !
+*. Paises Bajos
+*. Eslovaquia
+*. Polonia
 
 ¿Cuál es la ciudad francesa famosa por su festival de cinematográfico anual?
-*. Cannes
-*.
-*.
-*.
+*. Cannes !
+*. Mer d'argent
+*. Morelia
+*. Saint Sébastien.
 
 ¿Cuál es el hotel más antiguo del mundo?
-*. 
-*. 
-*. 
-*. 
+*. Albergo del Sole al Pantheon
+*. El Convento
+*. Nihishama Onsen keiunkan !
+*. Chateau La Moune
 
 ¿Quién dirigió la trilogía de El Padrino?
-*. 
-*. 
-*. 
-*. 
+*. Martin Scorsese
+*. Stanley Kubrick
+*. Alfred Hitchcock
+*. Francis Ford Coppola !
 
-¿Cuál fue la primera civilización humana registrada?
-*. 
-*. 
-*. 
-*. 
+¿Cuál es la civilización humana más registrada en America?
+*. Maya
+*. Caral
+*. Azteca
+*. Olmeca
 
 Categoria: alto.
 
 ¿Cuál es el idioma más antiguo de Europa que aún sigue usandose?
-*. Vasco
-*. 
-*. 
-*. 
+*. Euskera !
+*. Lituano
+*. Gaélico
+*. Prusiano
 
 ¿Cuál es el personaje del teatro italiano famoso por vestir máscara negra y traje de rombos?
-*.
-*.
-*.
-*.
+*. Arlequín !
+*. Fígaro
+*. Polichinela
+*. Scapino
 
 ¿Quién dijo la frase "Pues que coman pasteles", mientras el pueblo que gobernaba moría de hambre?
-*. 
-*. 
-*. 
-*. 
+*. Napoleón
+*. Juana la Loca
+*. Julio César
+*. María Antonieta de Austria !
 
 ¿Quién ideó las leyes de la herencia genética?
-*. Gregor Mendel
-*. 
-*. 
-*. 
+*. Louis Pasteur
+*. Charles Darwin
+*. Gregor Mendel !
+*. Piotr Kropotkin
 
-¿Dónde escribió Miguel de Servantes la mayor parte de la novela El Quijote?
-*. En la cárcel de Sevilla
-*. 
-*. 
-*. 
+¿Dónde escribió Miguel de Cervantes la mayor parte de la novela El Quijote?
+*. En la universidad de Valladolid
+*. En la cárcel de Sevilla !
+*. En la iglesia de Santa María
+*. En la biblioteca nacional de España
