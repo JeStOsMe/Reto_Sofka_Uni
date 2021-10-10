@@ -3,3 +3,6 @@ Usuario: JSOM      ,    Puntos: 20
 Usuario: JSOM      ,    Puntos: 100
 Usuario: Jeaniel Os, 	Puntos: 20
 Usuario: JSOM      , 	Puntos: 20
+Usuario: Jeaniel   , 	Puntos: 100
+Usuario: Osorno    , 	Puntos: 20
+Usuario: Shakespear, 	Puntos: 100
