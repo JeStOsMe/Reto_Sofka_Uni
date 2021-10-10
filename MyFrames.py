@@ -1,5 +1,4 @@
 from tkinter import *
-import random
 from tkinter import font
 
 class new_question:
@@ -15,27 +14,38 @@ class new_question:
         root = Tk()
         root.title(f"Sofka U - Ronda {category}, Pregunta {counter}")
         root.iconbitmap("Icons/SofkaU_Icon.ico")  
-        root.geometry("650x350")
-        MyFrame = Frame(root, padx=10, pady=10)
-        MyFrame.pack()
+        root.geometry("650x450")
+        root.resizable(False, False)
         
         question = question.split("*.")
         self.Question = question
 
-        varOption = IntVar()
-        optionOne = Radiobutton(MyFrame, text=self.saving_answer(self.Question[1].strip(), 1), variable=varOption, value=1)
-        optionTwo = Radiobutton(MyFrame, text=self.saving_answer(self.Question[2].strip(), 2), variable=varOption, value=2)
-        optionThree = Radiobutton(MyFrame, text=self.saving_answer(self.Question[3].strip(), 3), variable=varOption, value=3)
-        optionFour = Radiobutton(MyFrame, text=self.saving_answer(self.Question[4].strip(), 4), variable=varOption, value=4)
-        
-        
-        QuestionLabel = Label(MyFrame, text=f"¿{self.Question[0]}")
-        QuestionLabel.grid(row=1, column=1, columnspan=4)
+        img = PhotoImage(file=("SofkaU_Logo.png"))
+        labelImg = Label(root, image=img)
+        labelImg.place(x=250, y=10)
 
-        optionOne.grid(row=2, column=1)
-        optionTwo.grid(row=3, column=1)
-        optionThree.grid(row=4, column=1)
-        optionFour.grid(row=5, column=1)
+        varOption = IntVar()
+        optionOne = Radiobutton(root, text=self.saving_answer(self.Question[1].strip(), 1), variable=varOption, value=1, font=20)
+        optionTwo = Radiobutton(root, text=self.saving_answer(self.Question[2].strip(), 2), variable=varOption, value=2, font=20)
+        optionThree = Radiobutton(root, text=self.saving_answer(self.Question[3].strip(), 3), variable=varOption, value=3, font=20)
+        optionFour = Radiobutton(root, text=self.saving_answer(self.Question[4].strip(), 4), variable=varOption, value=4, font=20)
+        
+        
+        QuestionLabel = Label(root, text=f"¿{self.Question[0]}", font=20)
+        
+        if (len(self.Question[0]) <= 60):
+            QuestionLabel.place(x=130, y=180)
+        elif (len(self.Question[0]) > 60) and (len(self.Question[0]) <= 70):
+            QuestionLabel.place(x=90, y=180)
+        elif (len(self.Question[0]) > 70) and (len(self.Question[0]) <= 80):
+            QuestionLabel.place(x=60, y=180)
+        elif (len(self.Question[0]) > 80):
+            QuestionLabel.place(x=15, y=180)
+
+        optionOne.place(x=150, y=230)
+        optionTwo.place(x=150, y=260)
+        optionThree.place(x=150, y=290)
+        optionFour.place(x=150, y=320)
 
         
 
@@ -43,8 +53,8 @@ class new_question:
             self.wants_to_exit = True
             self.points = 0
             root.destroy()
-        MyButtonClose = Button(MyFrame, text="Salir", padx=10, pady=5, command=Exit_window)
-        MyButtonClose.grid(row=6, column=3)
+        MyButtonClose = Button(root, text="Salir", padx=10, pady=10, command=Exit_window, font=("", 10, "bold"), borderwidth=2, relief="solid")
+        MyButtonClose.place(x=400, y=375)
 
         def answer_question():
             if (varOption.get() != self.right_answer):
@@ -57,8 +67,8 @@ class new_question:
                 self.game_over = False
                 self.points = 4
                 root.destroy()
-        MyButtonContinue = Button(MyFrame, text="Responder", padx=10, pady=5, command=lambda:answer_question())
-        MyButtonContinue.grid(row=6, column=4)
+        MyButtonContinue = Button(root, text="Responder", padx=10, pady=10, command=lambda:answer_question(), font=("", 10, "bold"), borderwidth=2, relief="solid")
+        MyButtonContinue.place(x=500, y=375)
 
         root.mainloop()
 
@@ -80,25 +90,27 @@ class first_window:
         root = Tk()
         root.title("Preguntas y Respuestas - Sofka U")
         root.iconbitmap("Icons/SofkaU_Icon.ico")  
-        root.geometry("650x350")
-        MyFrame = Frame(root, padx=10, pady=10)
-        MyFrame.pack()
-        MyLabel = Label(MyFrame, text=open("Introduccion.txt", "r", encoding="utf-8").read())
-        MyLabel.grid(row=2, column=0, columnspan=4)
+        root.geometry("650x450")
+        root.resizable(False, False)
+        MyLabel = Label(root, text=open("Introduccion.txt", "r", encoding="utf-8").read())
+        MyLabel.place(x=75, y=75)
+
+        LabelTittle = Label(root, text="Trivia - ¿Quién quiere ser Sofkiano?", font=("", 20, "bold"))
+        LabelTittle.place(x=80, y=25)
 
         def returnResponse():
             self.closed = True
             root.destroy()
 
-        MyButtonStart = Button(MyFrame, text="Empezar", padx=10, pady=5, command=returnResponse )
-        MyButtonStart.grid(row=3, column=4)
+        MyButtonStart = Button(root, text="Empezar", padx=10, pady=5, command=returnResponse, font=("", 10, "bold"), borderwidth=2, relief="solid")
+        MyButtonStart.place(x=550, y=400)
 
         
         def close_window():
             self.closed = False
             root.destroy()
-        MyButtonClose = Button(MyFrame, text="Salir", padx=10, pady=5, command=close_window)
-        MyButtonClose.grid(row=3, column=3)
+        MyButtonClose = Button(root, text="Salir", padx=20, pady=5, command=close_window, font=("", 10, "bold"), borderwidth=2, relief="solid")
+        MyButtonClose.place(x=450, y=400)
 
         root.mainloop()
 
@@ -113,14 +125,17 @@ class between_right_answer:
 
 
         root = Tk()
-        root.title("Sofka U - Acertaste!")
+        root.title("Sofka U - Correcto!")
         root.iconbitmap("Icons/SofkaU_Icon.ico")
-        root.geometry("650x350")
-        MyFrame = Frame(root, padx=10, pady=10)
-        MyFrame.pack()
-
-        LabelOne = Label(MyFrame, text="Felicidades, ha contestado correctamente!", font=30)
-        LabelOne.grid(row=2, column=0, columnspan=3)
+        root.geometry("650x450")
+        root.resizable(False, False)
+        
+        img = PhotoImage(file=("SofkaU_Logo.png"))
+        labelImg = Label(root, image=img)
+        labelImg.place(x=250, y=10)
+        
+        LabelOne = Label(root, text="Felicidades, ha contestado correctamente!", font=("", 15, "bold"))
+        LabelOne.place(x=130, y=175)
 
         def retreat_button():
             self.Retreat = True
@@ -135,23 +150,23 @@ class between_right_answer:
             root.destroy()
 
         if (option == 1):
-            LabelTwo = Label(MyFrame, text="Puede retirarse ahora conservando su total de puntos")
-            LabelThree = Label(MyFrame, text="O puede continuar a la siguiente pregunta")
-            ButtonOne = Button(MyFrame, text="Retirarse", padx=10, pady=10, command=retreat_button)
-            ButtonOne.grid(row=6, column=2)
-            ButtonTwo = Button(MyFrame, text="Siguiente", padx=10, pady=10, command=lambda:next_question())
-            ButtonTwo.grid(row=6, column=3)
+            LabelTwo = Label(root, text="Puede retirarse ahora conservando su total de puntos", font=20)
+            LabelThree = Label(root, text="O puede continuar a la siguiente pregunta", font=20)
+            ButtonOne = Button(root, text="Retirarse", padx=10, pady=10, command=retreat_button, font=("", 10, "bold"), borderwidth=2, relief="solid")
+            ButtonOne.place(x=450, y=400)
+            ButtonTwo = Button(root, text="Siguiente", padx=10, pady=10, command=lambda:next_question(), font=("", 10, "bold"), borderwidth=2, relief="solid")
+            ButtonTwo.place(x=550, y=400)
         else:
-            LabelTwo = Label(MyFrame, text="Puede retirarse sin conservar sus puntos")
-            LabelThree = Label(MyFrame, text="O puede continuar a la siguiente pregunta")
-            ButtonOne = Button(MyFrame, text="Rendirse", command=surrender)
-            ButtonOne.grid(row=6, column=2)
-            ButtonTwo = Button(MyFrame, text="Siguiente", command=lambda:next_question())
-            ButtonTwo.grid(row=6, column=3)
-        LabelTwo.grid(row=3, column=2)
-        LabelThree.grid(row=4, column=2)
-        LabelFour = Label(MyFrame, text=f"Puntos: {points}", font=20)
-        LabelFour.grid(row=5, column=1)
+            LabelTwo = Label(root, text="Puede retirarse sin conservar sus puntos", font=20)
+            LabelThree = Label(root, text="O puede continuar a la siguiente pregunta", font=20)
+            ButtonOne = Button(root, text="Rendirse", command=surrender, padx=10, pady=10, font=("", 10, "bold"), borderwidth=2, relief="solid")
+            ButtonOne.place(x=450, y=400)
+            ButtonTwo = Button(root, text="Siguiente", command=lambda:next_question(), padx=10, pady=10, font=("", 10, "bold"), borderwidth=2, relief="solid")
+            ButtonTwo.place(x=550, y=400)
+        LabelTwo.place(x=180, y=250)
+        LabelThree.place(x=180, y=280)
+        LabelFour = Label(root, text=f"Puntos acumulados: {points}", font=("", 15, "bold"))
+        LabelFour.place(x=50, y=400)
 
         root.mainloop()
 
@@ -162,9 +177,8 @@ class endgame:
         root = Tk()
         root.title("Sofka U - Fin del juego")
         root.iconbitmap("Icons/SofkaU_Icon.ico")
-        root.geometry("650x350")
-        MyFrame = Frame(root, padx=10, pady=10)
-        MyFrame.pack()
+        root.geometry("650x450")
+        root.resizable(False, False)
 
         def close_window():
             root.destroy()
@@ -173,24 +187,28 @@ class endgame:
             #Cuando se equivoca en una pregunta
             print("Game Over")
 
-            LabelOne = Label(MyFrame, text="Has perdido el juego :(", font=30)
-            LabelTwo = Label(MyFrame, text=f"Total de puntos: {points}")
+            LabelOne = Label(root, text="Has perdido el juego :(", font=("", 30, "bold"))
+            LabelOne.place(x=100, y=50)            
 
         elif (end == 2):
             #Cuando completa las 25 preguntas
             print("Ganador indiscutible")
-            LabelOne = Label(MyFrame, text="Has contestado correctamente las 25 preguntas :D", font=30)
-            LabelTwo = Label(MyFrame, text=f"Total de puntos: {points}")
+            LabelOne = Label(root, text="Has contestado correctamente las 25 preguntas :D", font=("", 20, "bold"))
+            LabelOne.place(x=20, y=50)
         elif (end == 3):
             #Cuando se retira
-            LabelOne = Label(MyFrame, text=f"Has contestado correctamente {answered_questions} preguntas :D", font=30)
-            LabelTwo = Label(MyFrame, text=f"Total de puntos: {points}")
+            LabelOne = Label(root, text=f"Has contestado correctamente {answered_questions} preguntas :D", font=("", 20, "bold"))
+            LabelOne.place(x=20, y=50)
         
-        LabelOne.grid(row=1, column=1, columnspan=2)
-        LabelTwo.grid(row=3, column=1, columnspan=2)
+        img = PhotoImage(file=("SofkaU_Logo.png"))
+        labelImg = Label(root, image=img)
+        labelImg.place(x=250, y=110)
 
-        ButtonAccept = Button(MyFrame, text="Aceptar", padx=10, pady=5, command=close_window)
-        ButtonAccept.grid(row=5, column=2)
+        LabelTwo = Label(root, text=f"Total de puntos:      {points}", font=("", 25, "bold"))
+        LabelTwo.place(x=100, y=280)
+
+        ButtonAccept = Button(root, text="Aceptar", padx=10, pady=10, command=close_window, font=("", 15, "bold"), borderwidth=2, relief="solid")
+        ButtonAccept.place(x=500, y=380)
 
         root.mainloop()
 
@@ -208,9 +226,12 @@ class save_user:
         root = Tk()
         root.title("Sofka U - Registro de usuario")
         root.iconbitmap("Icons/SofkaU_Icon.ico")
-        root.geometry("650x350")
-        MyFrame = Frame(root, padx=10, pady=10)
-        MyFrame.pack()
+        root.geometry("650x450")
+        root.resizable(False, False)
+
+        img = PhotoImage(file=("SofkaU_Logo.png"))
+        labelImg = Label(root, image=img)
+        labelImg.place(x=250, y=80)
 
         def save_data_user():
             print("Guardar usuario")
@@ -218,25 +239,25 @@ class save_user:
             self.points = points
             root.destroy()
 
-        LabelOne = Label(MyFrame, text="Guardado de usuario", font=50)
-        LabelTwo = Label(MyFrame, text="Por favor, ingrese un usuario para almacenar")
-        LabelThree = Label(MyFrame, text="Usuario:", padx=5, pady=10)
-        usernameText = Entry(MyFrame)
-        ButtonSave = Button(MyFrame, text="Guardar", padx=10, pady=10, command=save_data_user)
+        LabelOne = Label(root, text="Guardado de usuario", font=("", 25, "bold"))
+        LabelTwo = Label(root, text="Por favor, ingrese un usuario para almacenar", font=30)
+        LabelThree = Label(root, text="Usuario:", padx=5, pady=5, font=20)
+        usernameText = Entry(root)
+        ButtonSave = Button(root, text="Guardar", padx=10, pady=10, command=save_data_user, font=("", 15, "bold"),  borderwidth=2, relief="solid")
 
 
-        LabelOne.grid(row=1, column=2, columnspan=2)
-        LabelTwo.grid(row=3, column=2)
-        LabelThree.grid(row=5, column=1)
-        usernameText.grid(row=5, column=2)
-        ButtonSave.grid(row=8, column=4)
+        LabelOne.place(x=170, y=10)
+        LabelTwo.place(x=150, y=250)
+        LabelThree.place(x=100, y=300)
+        usernameText.place(x=200, y=310)
+        ButtonSave.place(x=500, y=380)
 
 
         root.mainloop()
 
     def save_username(self):
         
-        print(self.username, "<--->", self.points)
+        #print(self.username, "<--->", self.points)
         
         with open("Historico_Jugadores/Historico.txt", "a+", encoding="utf-8") as registro:
             
@@ -258,16 +279,16 @@ class save_user:
             root = Tk()
             root.title("Sofka U - Registro de Jugadores")
             root.iconbitmap("Icons/SofkaU_Icon.ico")
-            root.geometry("650x350")
+            root.geometry("650x450")
 
 
-            usersText = Label(root, text=users)
-            usersText.place(x=200, y=50)
+            usersText = Label(root, text=users, font=30, anchor="w", justify="left")
+            usersText.place(x=150, y=50)
             
 
 
-            exitButton = Button(root, text="Salir", padx=10, pady=5, command=lambda:root.destroy())
-            exitButton.place(x=500, y= 300)
+            exitButton = Button(root, text="Salir", padx=10, pady=10, command=lambda:root.destroy(), font=("", 15, "bold"),  borderwidth=2, relief="solid")
+            exitButton.place(x=500, y= 350)
             
             
             root.mainloop()
