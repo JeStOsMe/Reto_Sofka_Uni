@@ -1,3 +1,5 @@
-Usuario: Jeaniel Osorno, Puntos: 20
-Usuario: JSOM, Puntos: 20
-Usuario: JSOM, Puntos: 100
+Usuario: Jeaniel Os,    Puntos: 20
+Usuario: JSOM      ,    Puntos: 20
+Usuario: JSOM      ,    Puntos: 100
+Usuario: Jeaniel Os, 	Puntos: 20
+Usuario: JSOM      , 	Puntos: 20

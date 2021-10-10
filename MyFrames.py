@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import font
 
 class new_question:
 
@@ -263,8 +262,17 @@ class save_user:
             
             usuarios = registro.readlines()
 
-            usuarios.append(f"Usuario: {self.username}, Puntos: {self.points}\n")
 
+            if (len(self.username) > 10):
+                usuarios.append(f"Usuario: {self.username[:10]}, \tPuntos: {self.points}\n")
+            else:
+                while True:
+                    if (len(self.username) <= 10):
+                        self.username = self.username + " "
+                    else:
+                        break
+                usuarios.append(f"Usuario: {self.username[:10]}, \tPuntos: {self.points}\n")
+            
             for usuario in usuarios:
                 registro.write(usuario)
     
@@ -280,14 +288,17 @@ class save_user:
             root.title("Sofka U - Registro de Jugadores")
             root.iconbitmap("Icons/SofkaU_Icon.ico")
             root.geometry("650x450")
+            root.resizable(False, False)
 
+            usersText = Text(root, font=15, width=50, height=10)
+            for line in users:
+                usersText.insert(INSERT, line)
+            usersText.place(x=120, y=50)
 
-            usersText = Label(root, text=users, font=30, anchor="w", justify="left")
-            usersText.place(x=150, y=50)
+            scroll = Scrollbar(root, command=usersText.yview, width=14)
+            scroll.place(in_=usersText, relx=1, relheight=1, bordermode="outside")
             
-
-
-            exitButton = Button(root, text="Salir", padx=10, pady=10, command=lambda:root.destroy(), font=("", 15, "bold"),  borderwidth=2, relief="solid")
+            exitButton = Button(root, text="Salir", padx=10, pady=5, command=lambda:root.destroy(), font=("", 15, "bold"),  borderwidth=2, relief="solid")
             exitButton.place(x=500, y= 350)
             
             
